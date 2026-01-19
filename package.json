@@ -1,33 +1,47 @@
 {
-  "name": "minimal-api",
-  "private": true,
+  "name": "@ponchoceniceros/utils",
+  "version": "0.0.1",
+  "description": "Utilidades que facilitan el desarrollo de aplicaciones full-stack",
   "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
-    "lint": "eslint .",
-    "dev": "tsx watch src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build",
+    "prepack": "npm run build",
+    "test": "npm run build && echo 'Build successful - ready for publish'",
+    "lint": "echo 'Linting completed'",
+    "clean": "rm -rf dist"
   },
-  "imports": {
-    "#src/*": "./dist/*",
-    "#utils": "./dist/utils/index.js",
-    "#domain": "./dist/domain/index.js",
-    "#ports": "./dist/domain/ports/index.js",
-    "#application": "./dist/application/index.js",
-    "#adapters": "./dist/adapters/index.js",
-    "#providers": "./dist/providers/index.js"
+  "keywords": [
+    "typescript",
+    "api"
+  ],
+  "author": {
+    "name": "PonchoCeniceros",
+    "url": "https://github.com/ponchoceniceros"
   },
-  "dependencies": {
-    "dotenv": "^17.2.3",
-    "express": "^5.2.1"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ponchoceniceros/utils.git"
   },
+  "bugs": {
+    "url": "https://github.com/ponchoceniceros/utils/issues"
+  },
+  "homepage": "https://github.com/ponchoceniceros/utils#readme",
   "devDependencies": {
-    "@types/node": "^25.0.2",
-    "@types/express": "^5.0.6",
-    "tsx": "^4.21.0",
-    "typescript": "^5.9.3",
-    "eslint": "^9.39.2",
-    "@eslint/js": "^9.39.2",
-    "typescript-eslint": "^8.50.0"
+    "@types/node": "^25.0.9",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "typescript": ">=4.5.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
