@@ -1,9 +1,6 @@
 # 📦 @ponchoceniceros/utils
 
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![NPM](https://img.shields.io/npm/v/@ponchoceniceros/utils?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 
 Utilidades que facilitan el desarrollo de aplicaciones full-stack, proporcionando herramientas para logging coloreado y manejo de respuestas de API.
 
@@ -179,26 +176,6 @@ src/
 ├── log.ts        # Clase Log y colores ANSI
 └── types.ts      # Tipos ApiResponse y type guards
 ```
-
-## 🤝 Contribuyendo
-
-¡Las contribuciones son bienvenidas! Por favor:
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit tus cambios (`git commit -am 'Añade nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
-
-## 👤 Autor
-
-**PonchoCeniceros** - [GitHub](https://github.com/ponchoceniceros)
-
-Repositorio: [https://github.com/ponchoceniceros/utils](https://github.com/ponchoceniceros/utils)
 
 ## 🐛 Reportar Issues
 
