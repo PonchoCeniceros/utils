@@ -6,30 +6,39 @@
 export interface ApiResponse<T> {
   isOk: boolean;
   mssg: string;
-  data?: T;
+  data?: T; // Sigue siendo opcional
   expired?: boolean;
 }
 
 /**
- * Type Guard para verificar si un objeto es una ApiResponse<T>
+ * Firma 1: Si pasas validador, 'data' se vuelve obligatorio y de tipo T
  */
 export function isApiResponse<T>(
-  obj: unknown,
-  validateData?: (data: unknown) => data is T // Recibimos el isOrder aquí
-): obj is ApiResponse<T> {
+  obj: any,
+  validateData: (data: unknown) => data is T
+): obj is ApiResponse<T> & { data: T };
 
-  const isBasicResponse = (
-    typeof obj === 'object' &&
-    obj !== null &&
-    'isOk' in obj &&
-    'mssg' in obj
-  );
+/**
+ * Firma 2: Si no pasas validador, 'data' sigue siendo opcional (T | undefined)
+ */
+export function isApiResponse<T>(
+  obj: any
+): obj is ApiResponse<T>;
 
-  if (!isBasicResponse) return false;
+/**
+ * Implementación
+ */
+export function isApiResponse<T>(
+  obj: any,
+  validateData?: (data: unknown) => data is T
+): boolean {
+  const basic = obj && typeof obj === 'object' && 'isOk' in obj && 'mssg' in obj;
+  if (!basic) return false;
 
-  // Si no pasamos validador, solo validamos la estructura básica
-  if (!validateData) return true;
+  // Si pedimos validar datos, 'data' debe existir y cumplir la guarda
+  if (validateData) {
+    return 'data' in obj && obj.data !== undefined && obj.data !== null && validateData(obj.data);
+  }
 
-  // Si pasamos validador, comprobamos que 'data' cumpla con él
-  return validateData((obj as any).data);
+  return true;
 }
