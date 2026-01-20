@@ -1,24 +1,27 @@
 {
   "compilerOptions": {
-    "target": "ES2023",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "baseUrl": ".",
-    "paths": {
-      "#src/*": ["src/*"],
-      "#utils": ["src/utils/index.ts"],
-      "#domain": ["src/domain/index.ts"],
-      "#ports": ["src/domain/ports/index.ts"],
-      "#application": ["src/application/index.ts"],
-      "#adapters": ["src/adapters/index.ts"],
-      "#providers": ["src/providers/index.ts"]
-    },
-    "rootDir": "src",
-    "outDir": "dist",
-    "strict": true,
-    "skipLibCheck": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "allowJs": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "removeComments": false,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "declaration": true,
+    "declarationMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*"
@@ -26,8 +29,6 @@
   "exclude": [
     "node_modules",
     "dist",
-    "sap-module/**/*",
-    "src/sap/**/*",
     "**/*.test.ts",
     "**/*.spec.ts"
   ]
